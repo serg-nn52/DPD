@@ -50,13 +50,13 @@ export const usePersonsStore = defineStore('persons', () => {
   });
 
   //добавляю пагинацию
-  const filteredPersonsWithPagination = computed(() => {
-    return filteredPersons.value.filter((el, i) => {
-      const maxNumber = currentPage.value * TOTAL_ELEMENTS_ON_PAGE;
-      const minNumber = currentPage.value * TOTAL_ELEMENTS_ON_PAGE - TOTAL_ELEMENTS_ON_PAGE + 1;
+  //диапазон
+  const maxNumberPerson = computed(() => currentPage.value * TOTAL_ELEMENTS_ON_PAGE - 1);
+  const minNumberPerson = computed(() => currentPage.value * TOTAL_ELEMENTS_ON_PAGE - TOTAL_ELEMENTS_ON_PAGE);
 
-      if (i + 1 >= minNumber && i + 1 <= maxNumber) return el;
-    });
+  //массив с учетом пагинации
+  const filteredPersonsWithPagination = computed(() => {
+    return filteredPersons.value.slice(minNumberPerson.value, maxNumberPerson.value + 1);
   });
 
   //убираю ситуацию, когда currentPage становится больше итогового количества страниц

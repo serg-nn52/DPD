@@ -17,8 +17,8 @@
       </div>
     </div>
     <h2 class="not-found" v-else>No results found!</h2>
-    <TablePagination />
   </div>
+  <TablePagination />
 </template>
 
 <script lang="ts" setup>

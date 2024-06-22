@@ -3,10 +3,10 @@
     display: flex;
     gap: 5px;
     justify-content: center;
-    font-size: 14px;
+    font-size: var(--font-size-l);
   }
   &-element {
-    font-size: 14px;
+    font-size: var(--font-size-l);
     cursor: pointer;
     &__current {
       color: var(--title-color);

@@ -8,9 +8,16 @@
 }
 .title {
   font-weight: 700;
-  font-size: 20px;
+  font-size: var(--font-size-xl);
   margin-top: 40px;
 }
 .search {
   margin-top: 10px;
+}
+.mobile-info {
+  color: var(--title-color);
+  font-size: var(--font-size-l);
+  font-weight: 700;
+  text-align: center;
+  margin-top: 30px;
 }

@@ -1,8 +1,24 @@
+@import './media';
+
 @font-face {
   font-family: 'Montserrat';
   src: url('../fonts/Montserrat-VariableFont_wght.ttf');
 }
 
+//font-family
 :root {
   --main-font: 'Montserrat', 'Arial', sans-serif;
+}
+
+//font-sizes
+:root {
+  --font-size-xl: 20px;
+  --font-size-l: 14px;
+  --font-size-m: 12px;
+  --font-size-s: 10px;
+  @include media-breakpoint-down(md) {
+    --font-size-xl: 16px;
+    --font-size-l: 12px;
+    --font-size-m: 10px;
+  }
 }

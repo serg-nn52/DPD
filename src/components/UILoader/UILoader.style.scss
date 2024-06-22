@@ -1,3 +1,4 @@
+@import '@/assets/style/media';
 .loader {
   &-wrapper {
     width: 100%;
@@ -8,5 +9,9 @@
   &-img {
     width: 100px;
     height: 100px;
+    @include media-breakpoint-down(lg) {
+      width: 70px;
+      height: 70px;
+    }
   }
 }
