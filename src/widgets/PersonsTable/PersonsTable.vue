@@ -2,10 +2,10 @@
   <div class="wrapper-table">
     <UILoader v-if="isLoading" />
     <div v-else-if="filteredPersons.length" class="table">
-      <div class="table-header" onselectstart="return false" onmousedown="return false">
+      <div class="table-header">
         <SortableCell v-for="(item, i) in tableHeaderData" :key="i">{{ item }}</SortableCell>
       </div>
-      <div v-for="person in filteredPersons" :key="person.id" class="table-row">
+      <div v-for="person in filteredPersonsWithPagination" :key="person.id" class="table-row">
         <img :src="person.avatar" alt="avatar" />
         <div class="row-date">{{ person.name }}</div>
 
@@ -17,6 +17,7 @@
       </div>
     </div>
     <h2 class="not-found" v-else>No results found!</h2>
+    <TablePagination />
   </div>
 </template>
 
@@ -26,9 +27,10 @@ import UILoader from '@/components/UILoader/UILoader.vue';
 import { usePersonsStore } from '@/stores/persons/persons.store';
 import { storeToRefs } from 'pinia';
 import { tableHeaderData } from './PersonsTable.data';
+import TablePagination from '../TablePagination/TablePagination.vue';
 
 const personsStore = usePersonsStore();
-const { filteredPersons, isLoading } = storeToRefs(personsStore);
+const { filteredPersons, isLoading, filteredPersonsWithPagination } = storeToRefs(personsStore);
 personsStore.fetchPersons();
 </script>
 
