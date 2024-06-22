@@ -9,6 +9,10 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "strict": true
+  },
+  "vueCompilerOptions": {
+    "strictTemplates": true
   }
 }

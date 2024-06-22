@@ -1,0 +1,10 @@
+.header-cell {
+  padding: 10px 5px;
+  font-size: 14px;
+  span {
+    svg {
+      fill: var(--title-color);
+      height: 10px;
+    }
+  }
+}
