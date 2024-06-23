@@ -1,6 +1,10 @@
 .header-cell {
   padding: 10px 5px;
   font-size: var(--font-size-l);
+  cursor: pointer;
+  &:first-child {
+    cursor: text;
+  }
 
   svg {
     fill: var(--title-color);

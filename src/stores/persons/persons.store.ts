@@ -136,6 +136,7 @@ export const usePersonsStore = defineStore('persons', () => {
   const sortableField = ref(route.query.sortableField || '');
   const sortableMethod = ref<TSortableMethod>((route.query.sortableMethod as TSortableMethod) || 'down');
 
+  //вспомогательный метод переключения направления сортировки
   const toggleSortableMethod = () => {
     if (sortableMethod.value === 'down') return (sortableMethod.value = 'up');
     if (sortableMethod.value === 'up') return (sortableMethod.value = 'down');

@@ -41,12 +41,14 @@
     }
   }
 }
-.table-row {
-  display: grid;
-  grid-template-columns: 70px 1fr 75px 120px 135px 255px 150px;
-  text-align: left;
-  grid-gap: 2px;
-  div {
+.table {
+  &-row {
+    display: grid;
+    grid-template-columns: 70px 1fr 75px 120px 135px 255px 150px;
+    text-align: left;
+    grid-gap: 2px;
+  }
+  &-cell {
     display: flex;
     align-items: center;
     padding: 10px;

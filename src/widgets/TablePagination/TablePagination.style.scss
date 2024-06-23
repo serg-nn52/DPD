@@ -1,16 +1,23 @@
 .pagination {
   &-wrapper {
     display: flex;
-    gap: 5px;
     justify-content: center;
     font-size: var(--font-size-l);
     margin-top: 15px;
   }
   &-element {
     font-size: var(--font-size-l);
+    min-width: 25px;
+    text-align: center;
     cursor: pointer;
+    transition: 0.2s;
+    &:hover {
+      opacity: 0.5;
+    }
+
     &__current {
       color: var(--title-color);
+      border-bottom: 1px solid var(--title-color);
     }
   }
 }

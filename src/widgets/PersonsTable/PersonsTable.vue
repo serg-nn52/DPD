@@ -14,13 +14,12 @@
       </div>
       <div v-for="person in filteredPersonsWithPagination" :key="person.id" class="table-row">
         <img :src="person.avatar" alt="avatar" />
-        <div class="row-date">{{ person.name }}</div>
-
-        <div class="cell">{{ person.gender }}</div>
-        <div class="cell">{{ person.country }}</div>
-        <div class="cell">{{ person.dob }}</div>
-        <div class="cell">{{ person.email }}</div>
-        <div class="cell">{{ person.phone }}</div>
+        <div class="table-cell">{{ person.name }}</div>
+        <div class="table-cell">{{ person.gender }}</div>
+        <div class="table-cell">{{ person.country }}</div>
+        <div class="table-cell">{{ person.dob }}</div>
+        <div class="table-cell">{{ person.email }}</div>
+        <div class="table-cell">{{ person.phone }}</div>
       </div>
     </div>
     <h2 class="not-found" v-else>No results found!</h2>
