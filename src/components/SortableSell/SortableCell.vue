@@ -1,19 +1,20 @@
 <template>
-  <div @click="() => {}" class="header-cell">
+  <div class="header-cell">
     <slot></slot>
-    <span v-show="true"
-      >{{ ' ' }}<ArrowDown v-if="getSort.method === 'down'" /><ArrowUp v-if="getSort.method === 'up'"
-    /></span>
+    <template v-if="isShowArrow">
+      {{ ' ' }}
+      <ArrowDown v-if="sortableMethod === 'down'" />
+      <ArrowUp v-if="sortableMethod === 'up'" />
+    </template>
   </div>
 </template>
 
 <script lang="ts" setup>
 import ArrowUp from '@/assets/icons/arrowUp.svg';
 import ArrowDown from '@/assets/icons/arrowDown.svg';
+import type { ISortableCellProps } from './SortableCell.types';
 
-const getSort = {
-  method: 'down',
-};
+defineProps<ISortableCellProps>();
 </script>
 
 <style src="./SortableCell.style.scss" lang="scss" scoped></style>

@@ -1,3 +1,5 @@
+import type { tableFields } from './persons.data';
+
 export interface IPerson {
   id: string;
   avatar: string;
@@ -8,3 +10,6 @@ export interface IPerson {
   email: string;
   phone: string;
 }
+export type TSortableMethod = 'down' | 'up';
+
+export type TFieldsType = keyof typeof tableFields;

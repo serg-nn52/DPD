@@ -3,7 +3,14 @@
     <UILoader v-if="isLoading" />
     <div v-else-if="filteredPersons.length" class="table">
       <div class="table-header">
-        <SortableCell v-for="(item, i) in tableHeaderData" :key="i">{{ item }}</SortableCell>
+        <SortableCell
+          :isShowArrow="sortableField === item && sortableField !== tableHeaderData[0]"
+          :sortableMethod="sortableMethod"
+          @click="personsStore.sortTable(item as TFieldsType)"
+          v-for="(item, i) in tableHeaderData"
+          :key="i"
+          >{{ item }}</SortableCell
+        >
       </div>
       <div v-for="person in filteredPersonsWithPagination" :key="person.id" class="table-row">
         <img :src="person.avatar" alt="avatar" />
@@ -18,7 +25,7 @@
     </div>
     <h2 class="not-found" v-else>No results found!</h2>
   </div>
-  <TablePagination />
+  <TablePagination v-if="!isLoading" />
 </template>
 
 <script lang="ts" setup>
@@ -28,9 +35,11 @@ import { usePersonsStore } from '@/stores/persons/persons.store';
 import { storeToRefs } from 'pinia';
 import { tableHeaderData } from './PersonsTable.data';
 import TablePagination from '../TablePagination/TablePagination.vue';
+import type { TFieldsType } from '@/stores/persons/persons.types';
 
 const personsStore = usePersonsStore();
-const { filteredPersons, isLoading, filteredPersonsWithPagination } = storeToRefs(personsStore);
+const { filteredPersons, isLoading, filteredPersonsWithPagination, sortableField, sortableMethod } =
+  storeToRefs(personsStore);
 personsStore.fetchPersons();
 </script>
 
