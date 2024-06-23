@@ -156,6 +156,19 @@ export const usePersonsStore = defineStore('persons', () => {
     });
   };
 
+  //сброс всех фильтров
+  const resetFilters = () => {
+    searchWords.value = '';
+    sortableField.value = '';
+    sortableMethod.value = 'down';
+    setCurrentPage(1);
+  };
+
+  //сделаю сброс фильтров при переходе на / без фильтров, f.e. по клику на лого
+  router.afterEach((to) => {
+    if (to.fullPath === '/') resetFilters();
+  });
+
   return {
     persons,
     isLoading,
